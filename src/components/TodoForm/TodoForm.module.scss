@@ -1,0 +1,90 @@
+.root {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	// width: 100%;
+}
+
+// .categoryItem {
+// 	width: 50px;
+// 	height: 20px;
+// 	border: 1px solid red;
+// 	margin-bottom: 5px;
+// }
+
+.card {
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 12px;
+	cursor: pointer;
+	perspective: 1000px;
+	height: 33px;
+	width: 500px;
+	margin-right: 17px;
+
+	&.done {
+		.cardInner {
+			transform: rotateY(180deg);
+		}
+	}
+}
+
+.cardInner {
+	position: relative;
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
+}
+
+.cardFront,
+.cardBack {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	padding: 6px 12px;
+}
+
+.isRemembered {
+	.cardFront,
+	.cardBack {
+		text-decoration: line-through;
+	}
+}
+
+.cardFront {
+	background-color: rgb(87, 85, 85);
+	color: whitesmoke;
+}
+
+.cardBack {
+	background-color: #0de266;
+	color: white;
+	transform: rotateY(180deg);
+}
+
+.icons {
+	font-size: 26px;
+	cursor: pointer;
+	margin-right: 15px;
+
+	&:hover {
+		color: #1bb95e;
+	}
+}
+
+.iconsd {
+	// font-size: 26px;
+	// cursor: pointer;
+	// margin-right: 15px;
+
+	&:hover {
+		color: #ec1313;
+	}
+}
