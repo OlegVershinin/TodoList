@@ -23,15 +23,21 @@ class TodoList extends React.Component {
   };
 
   handleSubmitForm = () => {
-    // e.preventDefault();
     const { value } = this.state;
-    this.props.onAppendItem({
-      text: value,
-      id: shortid.generate(),
-    });
-    this.setState({
-      value: '',
-    });
+    if (!value || !/[^\s]+/.test(value)) {
+      alert('пустое поле!');
+      this.setState({
+        value: '',
+      });
+    } else {
+      this.props.onAppendItem({
+        text: value,
+        id: shortid.generate(),
+      });
+      this.setState({
+        value: '',
+      });
+    }
   };
 
   render() {
@@ -52,7 +58,6 @@ class TodoList extends React.Component {
           />
         </div>
         {this.props.isFetching ? <img src={Preloader} alt="page" /> : null}
-
         <div>
           {item.map(({ text, id }) => (
             <TodoForm
